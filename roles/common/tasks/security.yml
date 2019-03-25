@@ -15,6 +15,7 @@
   tags: firewall
   ufw:
     policy: "deny"
+    direction: "incoming"
     state: "enabled"
 
 - name: Automated security updates
