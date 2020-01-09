@@ -1,6 +1,6 @@
 ---
 # Server Timzone + Locale
-timezone: America/Sao_Paulo
+timezone: America/New_York
 locale: en_US.UTF-8
 
 # Swap
@@ -20,6 +20,7 @@ shared_dirs:
   - repo
   - shared
   - shared/config
+  - shared/config/credentials
   - shared/log
   - shared/public
   - shared/tmp
@@ -30,13 +31,13 @@ nginx_https_enabled: false
 # Certbot
 certbot_url: https://dl.eff.org/certbot-auto
 certbot_dir: /opt/certbot
-certbot_email: victor.feijoa@gmail.com
+certbot_email: victor@ae.studio
 
 # Authorized Hosts
 # This copies your local public key to the remote machine
 # for passwordless login. Modify this!
 ssh_public_key_files:
-  - /Users/victorfeijo/.ssh/id_rsa.pub
+  - /Users/victor/.ssh/id_rsa.pub
 
 # MySQL
 # mysql_root_db_password: SET_PASSWORD_HERE
@@ -55,6 +56,8 @@ ruby_version: 2.5.1
 
 # Rails
 rails_secret_key_base: SECRET
+rails_environment: production
+rails_master_key: MASTER_KEY
 puma_workers: 1
 puma_threads: 1,16
 

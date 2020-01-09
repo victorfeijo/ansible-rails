@@ -13,6 +13,9 @@
 - name: Copy secrets.yml
   template: src=secrets.yml dest={{ deploy_dir }}{{ deploy_app_name }}/shared/config/secrets.yml owner={{ deploy_user }} group={{ deploy_user }}
 
+- name: Copy master.key
+  template: src=master.key dest={{ deploy_dir }}{{ deploy_app_name }}/shared/config/credentials/{{ rails_environment }}.key owner={{ deploy_user }} group={{ deploy_user }}
+
 - name: Copy database.yml
   template: src=database.yml dest={{ deploy_dir }}{{ deploy_app_name }}/shared/config/database.yml owner={{ deploy_user }} group={{ deploy_user }}
 

@@ -7,7 +7,7 @@ pidfile "{{ deploy_dir  }}{{ deploy_app_name }}/shared/tmp/pids/puma.pid"
 state_path "{{ deploy_dir  }}{{ deploy_app_name }}/shared/tmp/pids/puma.state"
 stdout_redirect '{{ deploy_dir  }}{{ deploy_app_name }}/shared/log/puma_access.log', '{{ deploy_dir  }}{{ deploy_app_name }}/shared/log/puma_error.log', true
 
-environment 'production'
+environment '{{ rails_environment }}'
 threads {{ puma_threads }}
 workers {{ puma_workers }}
 

@@ -1,7 +1,13 @@
-production:
+default: &default
   adapter: postgresql
   encoding: utf8
   database: {{ postgresql_app_db_name }}
   username: {{ postgresql_app_db_user }}
   password: {{ postgresql_app_db_password }}
   host: {{ postgresql_app_db_host }}
+
+production:
+  <<: *default
+
+staging:
+  <<: *default
