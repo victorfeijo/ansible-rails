@@ -12,6 +12,9 @@
 - name: Add deploy user to sudoers
   action: 'lineinfile dest=/etc/sudoers regexp="{{ deploy_user }} ALL" line="{{ deploy_user }} ALL=(ALL) NOPASSWD: ALL" state=present'
 
+- name: Enable lingering for systemd user account
+  shell: 'loginctl enable-linger {{ deploy_user }}'
+
 - name: Disallow root SSH access
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
   notify: Restart sshd
